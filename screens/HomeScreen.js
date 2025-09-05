@@ -4,6 +4,7 @@ import { View, FlatList, Text, TouchableOpacity, StyleSheet } from 'react-native
 import { useStore } from '../store/useStore';
 import ItemCard from '../components/ItemCard';
 import { useNavigation } from '@react-navigation/native';
+import NotificationButton from '../components/NotificationButton';
 
 export default function HomeScreen() {
   const { items, setItems } = useStore();
@@ -21,6 +22,7 @@ export default function HomeScreen() {
       <TouchableOpacity onPress={() => navigation.navigate('Form')} style={styles.button}>
         <Text style={styles.buttonText}>Go to Form</Text>
       </TouchableOpacity>
+      <NotificationButton />
       <FlatList
         data={items}
         keyExtractor={(item) => item.id.toString()}
