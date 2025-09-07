@@ -1,50 +1,82 @@
-# Welcome to your Expo app 👋
+# Expo Demo App 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This is a **demo Expo app** created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).  
+It demonstrates basic app structure, navigation, forms, state management, and entrance animations.
 
-## Get started
+---
 
-1. Install dependencies
+## Getting Started
 
-   ```bash
-   npm install
-   ```
+### 1. **Install dependencies**
 
-2. Start the app
+```bash
+npm install
+```
 
-   ```bash
-   npx expo start
-   ```
+### 2. **Start the app**
 
-In the output, you'll find options to open the app in a
+```bash
+npx expo start
+```
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+You can open the app in:
+- Development build
+- Android emulator
+- iOS simulator
+- Expo Go for quick testing
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Project Structure
 
-## Get a fresh project
+All development happens inside the `app` directory.  
+Uses file-based routing.
 
-When you're ready, run:
+## Demo App Features
+
+This app demonstrates:
+
+- **Home Screen**: Fetches a list of items from a public API and displays them with entrance animations using react-native-reanimated (animation triggers when items load, not on press)
+- **Form Screen**: Simple form using react-hook-form with validation
+- **Privacy Policy Screen**: Demo screen showing how to implement a privacy policy
+- **Notification Button**: Request push notification permission and send demo push notifications using Expo Notifications
+- **State Management**: Uses Zustand to store and manage the list of items
+- **Navigation**: Built with React Navigation for screen transitions
+
+## How to Test Demo Features
+
+### Home Screen
+- Displays a list of demo items fetched from jsonplaceholder.typicode.com
+- Each item animates into view when the list loads
+
+### Form Screen
+- Navigate via the "Go to Form" button
+- Fill in Name and Email and press Submit
+- Validation errors appear for empty or invalid inputs
+
+### Privacy Policy Screen
+- Navigate via the "Go to Privacy Policy" button
+- Scroll to view the demo privacy policy content
+
+### Notifications
+- Tap the "Send Push Notification" button
+- Make sure you are running the app on a physical device for push notifications
+- Approve the permission prompt and check the device for a demo notification
+
+## Reset Project
+
+To start fresh:
 
 ```bash
 npm run reset-project
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+This moves the starter code to `app-example` and creates a blank `app` directory.
 
-## Learn more
+## Learn More
 
-To learn more about developing your project with Expo, look at the following resources:
+- [Expo documentation](https://docs.expo.dev/)
+- [Step-by-step tutorial](https://docs.expo.dev/tutorial/introduction/)
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## Community
 
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- [Expo GitHub](https://github.com/expo/expo)
+- [Expo Discord](https://chat.expo.dev/)
