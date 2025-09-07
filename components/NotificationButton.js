@@ -1,10 +1,8 @@
-// components/NotificationButton.js
 import React, { useEffect, useState } from "react";
 import { Button, Alert, Platform } from "react-native";
 import * as Notifications from "expo-notifications";
 import Constants from "expo-constants";
 
-// Configure notification handling (foreground behavior)
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
     shouldShowAlert: true,
@@ -21,14 +19,12 @@ export default function NotificationButton() {
       if (token) setExpoPushToken(token);
     });
 
-    // Listener for received notifications
     const subscription = Notifications.addNotificationReceivedListener(
       (notification) => {
         console.log("Notification received:", notification);
       }
     );
 
-    // Listener for user interaction with notifications
     const responseSubscription =
       Notifications.addNotificationResponseReceivedListener((response) => {
         console.log("Notification response:", response);
@@ -40,7 +36,6 @@ export default function NotificationButton() {
     };
   }, []);
 
-  // Request permission and get Expo Push Token
   const registerForPushNotificationsAsync = async () => {
     if (!Constants.isDevice) {
       Alert.alert("Error", "Push notifications only work on a physical device");
@@ -63,7 +58,6 @@ export default function NotificationButton() {
     const token = (await Notifications.getExpoPushTokenAsync()).data;
     console.log("Expo Push Token:", token);
 
-    // (Optional) Android channel for better control
     if (Platform.OS === "android") {
       await Notifications.setNotificationChannelAsync("default", {
         name: "default",
@@ -76,7 +70,6 @@ export default function NotificationButton() {
     return token;
   };
 
-  // Send push notification via Expo push service
   const sendPushNotification = async () => {
     if (!expoPushToken) {
       Alert.alert("Error", "Push token not available");

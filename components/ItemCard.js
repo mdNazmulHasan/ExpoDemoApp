@@ -1,5 +1,3 @@
-// components/ItemCard.js
-import React from "react";
 import { Text, StyleSheet, Pressable } from "react-native";
 import Animated, { FadeInDown } from "react-native-reanimated";
 
@@ -29,9 +27,9 @@ const styles = StyleSheet.create({
     marginVertical: 8,
     borderRadius: 12,
     backgroundColor: "#f5f5f5",
-    overflow: "hidden", // required for ripple on Android
-    elevation: 2, // shadow for Android
-    shadowColor: "#000", // shadow for iOS
+    overflow: "hidden", 
+    elevation: 2, 
+    shadowColor: "#000", 
     shadowOpacity: 0.1,
     shadowRadius: 4,
     shadowOffset: { width: 0, height: 2 },

@@ -1,4 +1,3 @@
-// screens/FormScreen.js
 import React from "react";
 import { View, Text, TextInput, Button, StyleSheet } from "react-native";
 import { useForm, Controller } from "react-hook-form";
@@ -13,12 +12,11 @@ export default function FormScreen() {
 
   const onSubmit = (data) => {
     alert(`Form Submitted:\n${JSON.stringify(data, null, 2)}`);
-    reset(); // clear form after submit
+    reset(); 
   };
 
   return (
     <View style={styles.container}>
-      {/* Name Field */}
       <Text style={styles.label}>Name:</Text>
       <Controller
         control={control}
@@ -36,7 +34,6 @@ export default function FormScreen() {
       />
       {errors.name && <Text style={styles.errorText}>{errors.name.message}</Text>}
 
-      {/* Email Field */}
       <Text style={styles.label}>Email:</Text>
       <Controller
         control={control}
@@ -62,7 +59,6 @@ export default function FormScreen() {
       />
       {errors.email && <Text style={styles.errorText}>{errors.email.message}</Text>}
 
-      {/* Submit Button */}
       <Button title="Submit" onPress={handleSubmit(onSubmit)} color="#1BCDB7" />
     </View>
   );
