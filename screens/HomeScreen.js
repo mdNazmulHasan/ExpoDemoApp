@@ -1,10 +1,17 @@
 // screens/HomeScreen.js
-import React, { useEffect, useState } from 'react';
-import { View, FlatList, Text, TouchableOpacity, StyleSheet, ActivityIndicator } from 'react-native';
-import { useStore } from '../store/useStore';
-import ItemCard from '../components/ItemCard';
-import { useNavigation } from '@react-navigation/native';
-import NotificationButton from '../components/NotificationButton';
+import React, { useEffect, useState } from "react";
+import {
+  View,
+  FlatList,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  ActivityIndicator,
+} from "react-native";
+import { useStore } from "../store/useStore";
+import ItemCard from "../components/ItemCard";
+import { useNavigation } from "@react-navigation/native";
+import NotificationButton from "../components/NotificationButton";
 
 export default function HomeScreen() {
   const { items, setItems } = useStore();
@@ -14,7 +21,7 @@ export default function HomeScreen() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/posts')
+    fetch("https://jsonplaceholder.typicode.com/posts")
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data)) {
@@ -29,10 +36,14 @@ export default function HomeScreen() {
 
   const renderContent = () => {
     if (loading) {
-      return <ActivityIndicator size="large" color="#1BCDB7" style={styles.center} />;
+      return (
+        <ActivityIndicator size="large" color="#1BCDB7" style={styles.center} />
+      );
     }
     if (error) {
-      return <Text style={[styles.center, styles.errorText]}>Error: {error}</Text>;
+      return (
+        <Text style={[styles.center, styles.errorText]}>Error: {error}</Text>
+      );
     }
     return (
       <FlatList
@@ -47,8 +58,17 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => navigation.navigate('Form')} style={styles.button}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("Form")}
+        style={styles.button}
+      >
         <Text style={styles.buttonText}>Go to Form</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("PrivacyPolicy")}
+        style={styles.button}
+      >
+        <Text style={styles.buttonText}>Go to Privacy Policy</Text>
       </TouchableOpacity>
       <NotificationButton />
       {renderContent()}
@@ -58,8 +78,13 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, padding: 16 },
-  button: { backgroundColor: '#1BCDB7', padding: 12, borderRadius: 10, marginBottom: 16 },
-  buttonText: { color: '#fff', fontWeight: 'bold', textAlign: 'center' },
-  center: { textAlign: 'center', marginTop: 20 },
-  errorText: { color: 'red', fontWeight: 'bold' },
+  button: {
+    backgroundColor: "#1BCDB7",
+    padding: 12,
+    borderRadius: 10,
+    marginBottom: 16,
+  },
+  buttonText: { color: "#fff", fontWeight: "bold", textAlign: "center" },
+  center: { textAlign: "center", marginTop: 20 },
+  errorText: { color: "red", fontWeight: "bold" },
 });
